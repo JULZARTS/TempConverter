@@ -2,6 +2,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vm="using:TempConverter.ViewModels"
         xmlns:v="using:TempConverter.Views"
+        xmlns:vConv="using:TempConverter.Views.Converters"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" Width="400" Height="450"
@@ -17,17 +18,59 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-	<Grid RowDefinitions="*, *" >
-		<StackPanel Orientation="Vertical">
-			<TextBox/>
-			<TextBox/>
-		</StackPanel>
+	<Window.Styles>
+		<Style Selector="TextBox">
+			<Setter Property="Template">
+				<ControlTemplate>
+					<Border Background="{TemplateBinding Background}" BorderBrush="Gray" BorderThickness="1"
+							CornerRadius="5">	
+							<TextPresenter Grid.Column="1" x:Name="PART_TextPresenter" Text="{TemplateBinding Text}"
+										   VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 8 0" 
+										   TextWrapping="Wrap"/>		
+					</Border>
+				</ControlTemplate>
+			</Setter>
+		</Style>
+	</Window.Styles>
 
-		<StackPanel Orientation="Horizontal" Grid.Row="1" Spacing="6" VerticalAlignment="Center" HorizontalAlignment="Center">
+
+	<Grid RowDefinitions="*, Auto" >
+
+			<Grid RowDefinitions="*, *, *" VerticalAlignment="Center" HorizontalAlignment="Center">
+				
+				<TextBox x:Name="Tb1" Text="{Binding Tb1Text}" Grid.Row="0" />
+				<Menu Grid.Column="0" Width="20" Height="20">
+					<MenuItem x:Name="Menuz" Header="{Binding SelectedItem}"  FontSize="15" Padding="5 0 0 2">
+						<MenuItem Header="Celsius" Command="{Binding Unit1}" CommandParameter="°C" />
+						<MenuItem Header="Fahrenheit" Command="{Binding Unit1}" CommandParameter="°F" />
+						<MenuItem Header="Kelvin" Command="{Binding Unit1}" CommandParameter="K"/>
+					</MenuItem>
+				</Menu>
+
+				<StackPanel Grid.Row="1" Height="15"></StackPanel>
+
+				<TextBox x:Name="Tb2" Text="{Binding Tb2Text}" Grid.Row="2" />
+
+
+				<Menu Grid.Row="2" Width="20" Height="20">
+					<MenuItem x:Name="Menuz2" Header="{Binding SelectedItem2}"  FontSize="15" Padding="5 0 0 2">
+						<MenuItem Header="Celsius" Command="{Binding Unit2}" CommandParameter="°C" />
+						<MenuItem Header="Fahrenheit" Command="{Binding Unit2}" CommandParameter="°F" />
+						<MenuItem Header="Kelvin" Command="{Binding Unit2}" CommandParameter="K"/>
+					</MenuItem>
+				</Menu>
+				
+				
+			</Grid>
+		
+
+		<StackPanel Orientation="Horizontal" Grid.Row="1" Spacing="9" VerticalAlignment="Bottom" HorizontalAlignment="Center">
 			<ItemsControl ItemsSource="{Binding Btn}">
 				<ItemsControl.ItemTemplate>
 					<DataTemplate DataType="vm:BtnsViewModel">
-						<Button Content="{Binding BtnContent}"/>
+						<Button Content="{Binding BtnContent}" Margin="0 0 0 8"
+								Command="{Binding BtnCommand}"
+								CommandParameter="{Binding BtnContent}"/>
 					</DataTemplate>
 				</ItemsControl.ItemTemplate>
 			</ItemsControl>
@@ -36,7 +79,9 @@
 			<ItemsControl ItemsSource="{Binding Btn2}">
 				<ItemsControl.ItemTemplate>
 					<DataTemplate DataType="vm:BtnsViewModel">
-						<Button Content="{Binding BtnContent}"/>
+						<Button Content="{Binding BtnContent}" Margin="0 0 0 8"
+								Command="{Binding BtnCommand}"
+								CommandParameter="{Binding BtnContent}"/>
 					</DataTemplate>
 				</ItemsControl.ItemTemplate>
 			</ItemsControl>
@@ -44,7 +89,9 @@
 			<ItemsControl ItemsSource="{Binding Btn3}">
 				<ItemsControl.ItemTemplate>
 					<DataTemplate DataType="vm:BtnsViewModel">
-						<Button Content="{Binding BtnContent}"/>
+						<Button Content="{Binding BtnContent}" Margin="0 0 0 8"
+								Command="{Binding BtnCommand}" 
+								CommandParameter="{Binding BtnContent}"/>
 					</DataTemplate>
 				</ItemsControl.ItemTemplate>
 			</ItemsControl>

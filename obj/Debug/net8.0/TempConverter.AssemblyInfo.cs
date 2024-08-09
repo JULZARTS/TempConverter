@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TempConverter")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a04cc23336546f908d851c5b266fbee738e2cba8")]
 [assembly: System.Reflection.AssemblyProductAttribute("TempConverter")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TempConverter")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
