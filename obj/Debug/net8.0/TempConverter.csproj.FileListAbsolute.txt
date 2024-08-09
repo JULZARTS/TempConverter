@@ -66,3 +66,4 @@ C:\Users\ignac\c#\Avalonia\TempConverter\obj\Debug\net8.0\refint\Avalonia\TempCo
 C:\Users\ignac\c#\Avalonia\TempConverter\obj\Debug\net8.0\TempConv.E3EA4930.Up2Date
 C:\Users\ignac\c#\Avalonia\TempConverter\obj\Debug\net8.0\TempConverter.genruntimeconfig.cache
 C:\Users\ignac\c#\Avalonia\TempConverter\obj\Debug\net8.0\ref\TempConverter.dll
+C:\Users\ignac\c#\Avalonia\TempConverter\obj\Debug\net8.0\TempConverter.sourcelink.json
